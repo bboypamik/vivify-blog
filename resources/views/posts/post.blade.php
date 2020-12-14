@@ -5,9 +5,9 @@
 
 @section('content')
 
-<div class="container mt-5">
-    <h1>{{$post->title}}</h1>
-    <p>{{$post->content}}</p>
+<div class="text-center mt-5">
+    <h1 class="font-bold">{{$post->title}}</h1>
+    <p class="mt-5">{{$post->content}}</p>
 </div>
 
     @endsection

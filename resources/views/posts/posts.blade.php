@@ -3,18 +3,20 @@
 @section('title', 'Posts')
 
 @section('content')
-<div class="container mt-5">
-    <h1>Posts</h1>
+    <div class="container max-w-xl mx-auto">
+        <h1 class="text-center mt-5 font-bold">Posts</h1>
 
+        <a class="btn btn-primary" href="{{route('create')}}">Create New Post</a>
+        <ul class=" mt-5">
+            @foreach($posts as $post)
+             <li class="list-group-item m-2">   <a  href="{{route('post', $post->id)}}">{{$post->title}}</a></li>
 
-    <ul class="list-group">
-        @foreach($posts as $post)
-                <a class=" list-group-item d-flex" href="{{route('post', $post->id)}}">{{$post->title}}</a>
+            @endforeach
+        </ul>
 
-        @endforeach
-    </ul>
+        <div class="pt-5">
+            {{$posts ->links()}}
+        </div>
+    </div>
 
-    <div class="pt-3">{{$posts ->links()}}</div>
-</div>
-
-    @endsection
+@endsection
