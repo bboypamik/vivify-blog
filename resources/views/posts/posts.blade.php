@@ -9,7 +9,15 @@
         <a class="btn btn-primary" href="{{route('create')}}">Create New Post</a>
         <ul class=" mt-5">
             @foreach($posts as $post)
-             <li class="list-group-item m-2">   <a  href="{{route('post', $post->id)}}">{{$post->title}}</a></li>
+             <li class="list-group-item m-2">   <a  href="{{route('post', $post->id)}}">{{$post->title}}</a>
+
+             <p class="mt-4">Comments :</p>
+                @foreach($post->comments as $comment)
+                    <p>{{$comment->content}}</p>
+                @endforeach
+             </li>
+
+
 
             @endforeach
         </ul>
