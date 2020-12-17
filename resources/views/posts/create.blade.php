@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <form method="POST" action="{{route('create')}}" class="mt-5">
+    <form method="POST" action="{{route('post.create')}}" class="mt-5">
 
         @csrf
         <div class="form-group">

@@ -44,7 +44,7 @@ class CommentsController extends Controller
 
         $post->createComment($data['content']);
 
-        redirect()->back();
+         return back();
     }
 
     /**
