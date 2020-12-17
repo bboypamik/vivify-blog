@@ -26,4 +26,10 @@ class Post extends Model
     public function comments(){
         return $this->hasMany(Comment::class);
     }
+
+    public function createComment($content){
+        return $this->comments()->create([
+          'content' =>  $content
+        ]);
+    }
 }

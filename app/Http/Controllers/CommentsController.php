@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateCommentRequest;
 use App\Models\Comment;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -30,12 +32,19 @@ class CommentsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @param CreateCommentRequest $request
+     * @return void
      */
-    public function store(Request $request)
+    public function store(Post $post, CreateCommentRequest $request)
     {
-        //
+
+        $data = $request->validated();
+
+
+        $post->createComment($data['content']);
+
+        redirect()->back();
     }
 
     /**
@@ -80,6 +89,6 @@ class CommentsController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+
     }
 }

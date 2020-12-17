@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentsController;
 use App\Http\Controllers\PostController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
@@ -20,3 +21,4 @@ Route::get('/posts/create', [PostController::class, 'create'])->name('create');
 Route::post('/posts/create', [PostController::class, 'store']);
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('post');
 
+Route::post('/posts/{post}/comments', [CommentsController::class, 'store'])->name('comments.store');
