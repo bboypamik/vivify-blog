@@ -41,10 +41,11 @@ class CommentsController extends Controller
 
         $data = $request->validated();
 
+        session(['message'=> 'Uspesno si sacuvao dati komentar']);
 
         $post->createComment($data['content']);
 
-         return back();
+         return back()->with('message', 'Uspesno si sacuvao dati komentar');
     }
 
     /**

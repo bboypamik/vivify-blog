@@ -19,8 +19,12 @@ class Post extends Model
         return self::where('is_published', 0);
     }
 
-    public function getSomeData(){
+    public function user(){
+        $this->belongsTo(User::class);
+    }
 
+    public function tags(){
+        return $this->belongsToMany(Tag::class);
     }
 
     public function comments(){
